@@ -27,7 +27,7 @@ def preprocee_data(file_path):
 def train(file_path, list_classifiers):
     data_clean = preprocee_data(file_path)
 
-    X_train, X_test, y_train, y_test = train_test_split(data_clean['Text'], data_clean['label'], random_state=10)
+    X_train, X_test, y_train, y_test = train_test_split(data_clean['text'], data_clean['label'], random_state=10)
 
     for cls in list_classifiers:
         steps = []
