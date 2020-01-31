@@ -32,7 +32,7 @@ def train(file_path, list_classifiers):
     for cls in list_classifiers:
         steps = []
 
-        steps.append(('CountVectorizer', CountVectorizer(ngram_range=(1, 5), stop_words=stop_ws, max_df=5, min_df=0.5)))
+        steps.append(('CountVectorizer', CountVectorizer(ngram_range=(1, 5), stop_words=stop_ws, max_df=0.5, min_df=5)))
         steps.append(('Tfidf', TfidfVectorizer(use_idf=False, sublinear_tf=True, norm='l2', smooth_idf=True)))
         steps.append(('classifier', cls))
 
