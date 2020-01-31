@@ -15,9 +15,9 @@ stop_ws = (u'rằng', u'thì', u'là', u'mà')
 def preprocee_data(file_path):
     df = pd.read_csv(file_path)
     df_augmentation = df.copy()
-    df['text'].apply(lambda x: normalize_text(x))
-    df_augmentation['text'].apply(lambda x: normalize_text(x))
-    df_augmentation['text'].apply(lambda x: no_marks(x))
+    df['clean_text'] = df['text'].apply(lambda x: normalize_text(x))
+    df_augmentation['clean_text'] = df_augmentation['text'].apply(lambda x: normalize_text(x))
+    df_augmentation['clean_text'] = df_augmentation['text'].apply(lambda x: no_marks(x))
 
     df.append(df_augmentation)
 
@@ -27,7 +27,7 @@ def preprocee_data(file_path):
 def train(file_path, list_classifiers):
     data_clean = preprocee_data(file_path)
 
-    X_train, X_test, y_train, y_test = train_test_split(data_clean['text'], data_clean['label'], random_state=10)
+    X_train, X_test, y_train, y_test = train_test_split(data_clean['clean_text'], data_clean['label'], random_state=10)
 
     print(len(X_train),len(X_test))
 
