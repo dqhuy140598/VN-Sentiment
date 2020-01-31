@@ -29,6 +29,10 @@ def train(file_path, list_classifiers):
 
     X_train, X_test, y_train, y_test = train_test_split(data_clean['text'], data_clean['label'], random_state=10)
 
+    print(len(X_train),len(X_test))
+
+    print(X_train.head(5))
+
     for cls in list_classifiers:
         steps = []
 
