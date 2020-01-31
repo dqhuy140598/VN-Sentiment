@@ -55,4 +55,4 @@ if __name__ == '__main__':
         SVC(C=1),
         LogisticRegression()
     ]
-    preprocee_data(train_path,list_classifiers)
+    train(train_path,list_classifiers)
