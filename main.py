@@ -51,8 +51,8 @@ if __name__ == '__main__':
     list_classifiers = [
         RandomForestClassifier(),
         DecisionTreeClassifier(),
-        AdaBoostClassifier()
-        SVC(C=1)
+        AdaBoostClassifier(),
+        SVC(C=1),
         LogisticRegression()
     ]
     preprocee_data(train_path,list_classifiers)
